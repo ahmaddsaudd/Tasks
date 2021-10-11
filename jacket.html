@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Jacket program-->
+    <h1>This program will help you deicde if you need to take out a jacket or not!!</h1>
+    <h3>Enter the current outside temperature to find out!</h3>
+    Enter Temperature: <input type= "number" id= "temp">
+    <button onclick="myfunction()">Submit</button>
+    <div id="result"></div>
+
+    <!-- GPA-->
+    <h4> Gpa Calculator </h4>
+    Enter your marks for course 1 <input type="number" id="c1"><br><br>
+    Enter your marks for course 2 <input type="number" id="c2"><br><br>
+    Enter your marks for course 3 <input type="number" id="c3"><br><br>
+    Enter your marks for course 4 <input type="number" id="c4"><br><br>
+    Enter your marks for course 5 <input type="number" id="c5"><br><br>
+    Enter your marks for course 6 <input type="number" id="c6"><br><br>
+    <button onclick="myfunction2()">Calculate</button>
+    <div id="result1">Result</div>
+
+    <!-- Currency converter-->
+    <h4>Currency converter</h4>
+    United States Dollar: <input type="number" id="usd"> Pakistan Rupees: <input type="number" id="pkr"><br><br>
+    <button onclick="convert()">Convert</button>
+
+
+    <script>
+        function myfunction(){
+            let temp = document.getElementById("temp").value
+            if(temp>25){
+                document.getElementById("result").innerText= "Dont take the jacket with you"
+            } else if (temp<25 && temp>15){
+                document.getElementById("result").innerText= "Take the jacket with you"
+            } else if (temp<15 && temp>0){
+                document.getElementById("result").innerText= "Take the coat with you"
+            } else if (temp<0){
+                document.getElementById("result").innerText= "Dont go out"
+            }
+            
+        }
+
+        function myfunction2(){
+            let c1 = Number(document.getElementById("c1").value)
+            let c2 = Number(document.getElementById("c2").value)
+            let c3 = Number(document.getElementById("c3").value)
+            let c4 = Number(document.getElementById("c4").value)
+            let c5 = Number(document.getElementById("c5").value)
+            let c6 = Number(document.getElementById("c6").value)
+            cResult = (c1+c2+c3+c4+c5+c6)/6
+            fResult = cResult/25
+            document.getElementById("result1").innerText= fResult
+        }
+        function convert() {
+            let usd = Number(document.getElementById("usd").value)
+            let pkr = Number(document.getElementById("pkr").value)
+            if(usd || pkr){
+            resultPkr = (160*usd)
+            document.getElementById("pkr" ).value  = resulPkr
+
+        } else{ 
+            resultUsd = (pkr/160 )
+           document.getElementById("usd").value = resultUsd
+        }
+        }
+    </script>
+    
+</body>
+
+</html>
